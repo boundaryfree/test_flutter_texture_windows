@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+Need copy "plugins\texture\windows\third_parties\glfw\glfw3.dll" to your executable folder.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
