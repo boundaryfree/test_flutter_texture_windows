@@ -176,7 +176,7 @@ namespace {
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 		glfwWindowHint(GLFW_DOUBLEBUFFER, GLFW_TRUE);
 		glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
-		//glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
+		glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
 
 		GLFWwindow* window;
 		window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
