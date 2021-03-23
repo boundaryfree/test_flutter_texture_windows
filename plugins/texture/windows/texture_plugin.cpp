@@ -176,7 +176,7 @@ namespace {
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 		glfwWindowHint(GLFW_DOUBLEBUFFER, GLFW_TRUE);
 		glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
-		glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
+		//glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
 
 		GLFWwindow* window;
 		window = glfwCreateWindow(width, height, "Simple example", NULL, NULL);
@@ -253,7 +253,7 @@ namespace {
 			mat4x4 m, p, mvp;
 
 			auto start = std::chrono::high_resolution_clock::now();
-			openg_mutex.lock();
+			//openg_mutex.lock();
 			auto end = std::chrono::high_resolution_clock::now();
 			std::chrono::duration<double, std::milli> duration = end - start;
 			std::cout << "renderer get opengl lock: " << duration.count() << " ms" << std::endl;
@@ -283,14 +283,14 @@ namespace {
 
 			glfwMakeContextCurrent(NULL);
 
-			openg_mutex.unlock();
+			//openg_mutex.unlock();
 
 			duration = std::chrono::high_resolution_clock::now() - end;
 			std::cout << "renderer cost: " << duration.count() << " ms" << std::endl;
 
-			tex_registrar->MarkTextureFrameAvailable(texture_id);
+			//tex_registrar->MarkTextureFrameAvailable(texture_id);
 
-			std::this_thread::sleep_for(std::chrono::milliseconds(10));
+			//std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
 		}
 	}
@@ -460,7 +460,7 @@ namespace {
 			auto render_thread = std::thread(startRender, window, tex_id, this->texture_registrar);
 			render_thread.detach();
 			
-			return result->Success(flutter::EncodableValue(tex_id));
+			return result->Success(flutter::EncodableValue(0));
 		}
 		else {
 			result->NotImplemented();
